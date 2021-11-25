@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC18E9FD274F9B8900FDE50D /* UIBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC18E9FC274F9B8900FDE50D /* UIBuilder.swift */; };
 		ACA99699274EE60500B6AD5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA99698274EE60500B6AD5E /* AppDelegate.swift */; };
 		ACA9969B274EE60500B6AD5E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA9969A274EE60500B6AD5E /* SceneDelegate.swift */; };
-		ACA9969D274EE60500B6AD5E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA9969C274EE60500B6AD5E /* ViewController.swift */; };
+		ACA9969D274EE60500B6AD5E /* LatestNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA9969C274EE60500B6AD5E /* LatestNewsViewController.swift */; };
 		ACA996A0274EE60500B6AD5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA9969E274EE60500B6AD5E /* Main.storyboard */; };
 		ACA996A2274EE60600B6AD5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACA996A1274EE60600B6AD5E /* Assets.xcassets */; };
 		ACA996A5274EE60600B6AD5E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA996A3274EE60600B6AD5E /* LaunchScreen.storyboard */; };
@@ -22,10 +23,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC18E9FC274F9B8900FDE50D /* UIBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBuilder.swift; sourceTree = "<group>"; };
 		ACA99695274EE60500B6AD5E /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACA99698274EE60500B6AD5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACA9969A274EE60500B6AD5E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		ACA9969C274EE60500B6AD5E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ACA9969C274EE60500B6AD5E /* LatestNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestNewsViewController.swift; sourceTree = "<group>"; };
 		ACA9969F274EE60500B6AD5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ACA996A1274EE60600B6AD5E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACA996A4274EE60600B6AD5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC18E9FB274F9B7000FDE50D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				AC18E9FC274F9B8900FDE50D /* UIBuilder.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		ACA9968C274EE60500B6AD5E = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +78,7 @@
 		ACA99697274EE60500B6AD5E /* NewsApp */ = {
 			isa = PBXGroup;
 			children = (
+				AC18E9FB274F9B7000FDE50D /* Utils */,
 				ACA996B8274EFF3000B6AD5E /* View */,
 				ACA996B7274EF8C300B6AD5E /* Controller */,
 				ACA996B4274EF1D900B6AD5E /* Service */,
@@ -103,7 +114,7 @@
 		ACA996B7274EF8C300B6AD5E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				ACA9969C274EE60500B6AD5E /* ViewController.swift */,
+				ACA9969C274EE60500B6AD5E /* LatestNewsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -194,10 +205,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACA996AE274EF17E00B6AD5E /* Response.swift in Sources */,
-				ACA9969D274EE60500B6AD5E /* ViewController.swift in Sources */,
+				ACA9969D274EE60500B6AD5E /* LatestNewsViewController.swift in Sources */,
 				ACA996B6274EF1F000B6AD5E /* DataLoader.swift in Sources */,
 				ACA99699274EE60500B6AD5E /* AppDelegate.swift in Sources */,
 				ACA996BA274EFF4A00B6AD5E /* ArticleTableViewCell.swift in Sources */,
+				AC18E9FD274F9B8900FDE50D /* UIBuilder.swift in Sources */,
 				ACA996B2274EF18F00B6AD5E /* Source.swift in Sources */,
 				ACA9969B274EE60500B6AD5E /* SceneDelegate.swift in Sources */,
 				ACA996B0274EF18600B6AD5E /* Article.swift in Sources */,

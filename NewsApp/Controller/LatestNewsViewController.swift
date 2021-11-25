@@ -6,13 +6,17 @@
 //
 
 import UIKit
+import SafariServices
+
 
 fileprivate let cellId: String = "aricleCell"
 
-class ViewController: UIViewController {
+class LatestNewsViewController: UIViewController {
     
     //MARK: -Properties
     private var articles: [Article] = []
+    
+    
     
     //MARK: -UI Elements
     private lazy var tableView: UITableView = {
@@ -28,6 +32,8 @@ class ViewController: UIViewController {
         return tbl
     }()
 
+    
+    //MARK: -Overrides & LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureView()
@@ -35,16 +41,20 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.test()
+        self.fetchNews()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
+    
+    //MARK: -Fucntions
     private func configureView() -> Void {
         //view configuration
-        self.view.backgroundColor = .black
+        self.title = "Latest News"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.view.backgroundColor = .white
         
         
         //adding subviews
@@ -56,11 +66,9 @@ class ViewController: UIViewController {
         self.tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         self.tableView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor).isActive = true
         self.tableView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor).isActive = true
-        
-        
     }
     
-    private func test() -> Void {
+    private func fetchNews() -> Void {
         DataLoader.shared.makeRequest() { [weak self] (_, articles, error) in
             guard let articles = articles, articles.count != 0, error == nil else {
                 print("Data Loader Error: \(error!)")
@@ -80,8 +88,8 @@ class ViewController: UIViewController {
 }
 
 
-
-extension ViewController: UITableViewDataSource {
+//MARK: - EXT(TableView DataSource)
+extension LatestNewsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.articles.count
     }
@@ -95,12 +103,30 @@ extension ViewController: UITableViewDataSource {
         
         return cell
     }
-    
 }
 
 
-extension ViewController: UITableViewDelegate {
+//MARK: - EXT(TableView Delegate)
+extension LatestNewsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 370.0
+        return 420.0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        guard let url = URL(string: self.articles[indexPath.row].url) else { return }
+        self.openInSafari(using: url)
+    }
+    
+    
+    private func openInSafari(using url: URL) -> Void {
+        let config = SFSafariViewController.Configuration.init()
+        config.entersReaderIfAvailable = true
+        config.barCollapsingEnabled = true
+        
+        let safariReader = SFSafariViewController(url: url, configuration: config)
+        
+        self.present(safariReader, animated: true, completion: nil)
+        self.modalPresentationStyle = .fullScreen
     }
 }

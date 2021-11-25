@@ -67,7 +67,6 @@ class DataLoader {
         }.resume()
     }
     
-    
     private func formURL(with query: String = "keyword") -> URLComponents {
         var components = URLComponents()
         var q: String = query
@@ -78,8 +77,7 @@ class DataLoader {
         components.path = "/v2/everything"
         components.host = "newsapi.org"
         components.queryItems = [
-            URLQueryItem(name: "q", value: q),
-//            URLQueryItem(name: "apiKey", value: "33895be136484de0a4f6007cee094964"),
+            URLQueryItem(name: "q", value: q)
         ]
         
         return components
