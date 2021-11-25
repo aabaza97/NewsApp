@@ -4,7 +4,7 @@ A prctice project by DevProjects...
 A mobile app to consume the News API and display a list of news articles. Clicking one of the news articles will open the news article within the app.
 
 
-#Requirements
+# Requirements
 
 When the user opens the app, they should see a list of news articles. Each news article should have the following details:
 
